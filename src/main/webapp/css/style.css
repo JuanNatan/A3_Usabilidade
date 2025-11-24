@@ -1,0 +1,133 @@
+/* --- Variáveis de Cores --- */
+:root {
+    --primary-blue: #0054a6;
+    --primary-blue-hover: #003d7a;
+    --bg-gray: #f4f7f6;
+    --text-dark: #2c3e50;
+    --text-light: #6c757d;
+    --white: #ffffff;
+    --success-green: #28a745;
+    --error-red: #dc3545;
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Configuração Base --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-dark);
+    /* Espaço para não esconder conteúdo atrás das barras fixas */
+    padding-top: 90px;    /* Altura da Nav + Respiro */
+    padding-bottom: 60px; /* Altura do Footer + Respiro */
+}
+
+/* --- 1. BARRA DE NAVEGAÇÃO (TOPO FIXO) --- */
+nav {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    height: 70px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Fixar no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-blue);
+}
+
+.nav-logo img { height: 45px; display: block; }
+
+/* Botão 3 Pontinhos */
+.menu-toggle {
+    background: none; border: none; font-size: 2rem;
+    color: var(--primary-blue); cursor: pointer;
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+}
+.menu-toggle:hover { background-color: #f0f0f0; }
+
+/* Menu Suspenso */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 75px; right: 20px;
+    background: var(--white);
+    width: 220px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    flex-direction: column;
+    border: 1px solid #ddd;
+}
+.nav-links.show { display: flex; }
+
+.nav-links a {
+    padding: 15px; color: var(--text-dark); text-decoration: none;
+    border-bottom: 1px solid #eee; font-weight: 500;
+}
+.nav-links a:hover { background-color: var(--bg-gray); color: var(--primary-blue); padding-left: 20px; transition: 0.2s; }
+
+/* --- 2. RODAPÉ (FUNDO FIXO) --- */
+footer {
+    background-color: rgba(0, 84, 166, 0.9);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+
+    /* Fixar no chão */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* --- 3. CONTEÚDO DA PÁGINA --- */
+.container-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Nome da Página (Canto Superior Direito) */
+.page-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.page-label {
+    background: var(--white); color: var(--primary-blue);
+    padding: 5px 15px; border-radius: 15px;
+    font-size: 0.85rem; font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-transform: uppercase; border: 1px solid #e0e0e0;
+}
+
+/* --- Estilos Gerais (Tabelas, Forms, Botões) --- */
+h1 { color: var(--primary-blue); margin-bottom: 20px; }
+a { color: var(--primary-blue); text-decoration: none; }
+
+table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: var(--shadow); border-radius: 8px; overflow: hidden; margin-bottom: 20px;}
+th { background: var(--primary-blue); color: #fff; padding: 12px; text-align: left; }
+td { padding: 12px; border-bottom: 1px solid #eee; }
+tr:hover { background: #f9f9f9; }
+
+form { background: #fff; padding: 30px; border-radius: 8px; box-shadow: var(--shadow); border-top: 4px solid var(--primary-blue); }
+input, select { width: 100%; padding: 10px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 4px; }
+input[type="submit"], .btn-acao { background: var(--primary-blue); color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; display: inline-block;}
+input[type="submit"]:hover { background: var(--primary-blue-hover); }
+
+.feedback-sucesso { background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #c3e6cb;}
+.feedback-erro { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #f5c6cb;}
