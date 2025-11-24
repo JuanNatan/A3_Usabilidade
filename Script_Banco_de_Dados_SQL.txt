@@ -1,0 +1,47 @@
+-- SQL SCRIPT: CRIACAO DO BANCO DE DADOS (SCHEMA) PARA A A3
+-- Versão do Banco: MySQL / MariaDB
+
+-- O nome do banco DEVE ser 'controle_estoque_a3' para funcionar com Conexao.java
+DROP DATABASE IF EXISTS controle_estoque_a3;
+CREATE DATABASE controle_estoque_a3;
+USE controle_estoque_a3;
+
+-- 1. TABELA CATEGORIA
+CREATE TABLE categoria (
+    id_categoria INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    tamanho VARCHAR(50), 
+    embalagem VARCHAR(50), 
+    PRIMARY KEY (id_categoria)
+);
+
+-- 2. TABELA PRODUTO
+CREATE TABLE produto (
+    id_produto INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(150) NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL,
+    unidade VARCHAR(50) NOT NULL,
+    quantidade_estoque INT NOT NULL DEFAULT 0,
+    quantidade_minima INT NOT NULL DEFAULT 0,
+    quantidade_maxima INT NOT NULL DEFAULT 99999,
+    id_categoria INT NOT NULL,
+    PRIMARY KEY (id_produto),
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+);
+
+-- 3. TABELA MOVIMENTACAO
+CREATE TABLE movimentacao (
+    id_movimentacao INT NOT NULL AUTO_INCREMENT,
+    id_produto INT NOT NULL,
+    data_movimentacao DATE NOT NULL,
+    quantidade INT NOT NULL,
+    tipo VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id_movimentacao),
+    FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
+);
+
+-- DADOS INICIAIS (Para o sistema não iniciar vazio)
+INSERT INTO categoria (nome, tamanho, embalagem) VALUES 
+('Limpeza', 'Grande', 'Plastico'),
+('Enlatados', 'Pequeno', 'Lata'),
+('Higiene', 'Medio', 'Plastico');
