@@ -4,7 +4,7 @@ Este projeto é a entrega da **Avaliação 3 (A3)** da Unidade Curricular **Usab
 
 ---
 
-## 👨‍🎓 Aluno
+##  Aluno
 
 Este trabalho foi desenvolvido individualmente.
 
@@ -14,7 +14,7 @@ Este trabalho foi desenvolvido individualmente.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 O projeto é uma aplicação web desenvolvida no modelo **MVC (Model-View-Controller)**, utilizando as seguintes tecnologias:
 
@@ -28,7 +28,7 @@ O projeto é uma aplicação web desenvolvida no modelo **MVC (Model-View-Contro
 
 ---
 
-## 🚀 Funcionalidades Principais
+##  Funcionalidades Principais
 
 O sistema permite a gestão completa do estoque, abrangendo os seguintes módulos e funcionalidades:
 
@@ -54,7 +54,7 @@ O sistema oferece relatórios essenciais para a tomada de decisão do comerciant
 
 ---
 
-## 💻 Estrutura do Projeto
+## 💻Estrutura do Projeto
 
 A estrutura de pacotes e diretórios segue o padrão Maven para projetos Web (WAR):
 
@@ -76,7 +76,7 @@ A estrutura de pacotes e diretórios segue o padrão Maven para projetos Web (WA
 
 ---
 
-## ⚙️ Configuração e Execução
+##  Configuração e Execução
 
 ### Pré-requisitos
 
