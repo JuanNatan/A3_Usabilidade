@@ -124,6 +124,40 @@ public class ProdutoServlet extends HttpServlet {
             int qtdeMax = Integer.parseInt(quantidadeMaximaParam);
             int idCat = Integer.parseInt(idCategoriaParam);
 
+
+            if (qtdeMin > qtdeMax) {
+                String mensagemErro = "⚠️ O estoque mínimo (" + qtdeMin + ") não pode ser " +
+                        "maior que o estoque máximo (" + qtdeMax + "). " +
+                        "O estoque mínimo representa a quantidade limite para " +
+                        "reabastecimento e deve sempre ser menor ou igual ao máximo.";
+
+
+                produto.setNome(nome);
+                produto.setPrecoUnitario(preco);
+                produto.setUnidade(unidade);
+                produto.setQuantidadeMinima(qtdeMin);
+                produto.setQuantidadeMaxima(qtdeMax);
+
+
+                if (idParam != null && !idParam.isEmpty()) {
+                    produto.setId(Integer.parseInt(idParam));
+                }
+
+
+                try {
+                    Categoria categoria = categoriaDao.buscarPorId(idCat);
+                    produto.setCategoria(categoria);
+                } catch (Exception e) {
+
+                }
+
+                request.setAttribute("mensagemErro", mensagemErro);
+                request.setAttribute("produto", produto);
+                prepararFormulario(request, response);
+                return;
+            }
+
+
             Categoria categoria = categoriaDao.buscarPorId(idCat);
 
             produto.setNome(nome);

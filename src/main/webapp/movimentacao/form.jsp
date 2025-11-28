@@ -72,7 +72,9 @@
     </form>
 
 </div>
-
+<div style="margin-top: 50px; text-align: center;">
+    <a href="${pageContext.request.contextPath}/index.jsp" style="font-weight: bold; color: #666;">🏠 Voltar ao Início</a>
+</div>
 <footer>
     Controlador de Estoque da A3 - Juan Natan
 </footer>
